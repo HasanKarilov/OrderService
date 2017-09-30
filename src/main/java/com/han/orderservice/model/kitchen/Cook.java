@@ -6,7 +6,7 @@ import com.han.orderservice.model.ConsoleHelper;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Cook implements Observer
+public class Cook extends Observable implements Observer
 {
     public final String name;
     public Cook(String name)
@@ -19,12 +19,16 @@ public class Cook implements Observer
         return name;
     }
 
-//    tablet (Observable) - объект, который отправил нам значение
-//    order (Object)- само значение, в нашем случае - это объект Order
-
+    /**
+     * @param tablet (Observable) - объект, который отправил нам значение
+     * @param order (Object)- само значение, в нашем случае - это объект Order
+     */
     @Override
-    public void update(Observable observable, Object arg)
+    public void update(Observable tablet, Object order)
     {
-        ConsoleHelper.writeMessage("Start cooking - " + arg);
+        Order order1 = (Order) order;
+        ConsoleHelper.writeMessage("Cook: " + name + "Start cooking - " + order1 + " cooking time: " + order1.getTotalCookingTime());
+        setChanged();
+        notifyObservers(order);
     }
 }

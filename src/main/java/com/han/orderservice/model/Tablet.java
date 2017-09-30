@@ -12,9 +12,13 @@ import java.util.logging.Logger;
 public class Tablet extends Observable {
 
     /**
+     * Observable — интерфейс, определяющий методы для добавления, удаления и оповещения наблюдателей;
+     * Observer — интерфейс, с помощью которого наблюдатель получает оповещение;
+     * т.е. Tablet рассылает оповешения наблюдателям, в нашем случае Cook.
+
      * номер планшета, чтобы можно было однозначно установить, откуда поступил заказ
      */
-    public final int number;
+    private final int number;
     public static Logger logger = Logger.getLogger(Tablet.class.getName());
 
     public Tablet(int number)
@@ -30,8 +34,11 @@ public class Tablet extends Observable {
         {
             Order order = new Order(this);
             ConsoleHelper.writeMessage(order.toString());
-            setChanged();
-            notifyObservers(order);
+
+            if(!order.isEmpty()) {
+                setChanged();
+                notifyObservers(order);
+            }
             return order;
         }
         catch (IOException e)
@@ -40,6 +47,11 @@ public class Tablet extends Observable {
             return null;
         }
     }
+
+    public int getNumber() {
+        return number;
+    }
+
     @Override
     public String toString()
     {

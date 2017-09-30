@@ -6,7 +6,13 @@ import com.han.orderservice.model.Tablet;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Создает заказ и выводит его данные
+ */
 public class Order {
+    /**
+     * Ссылка на таблетку и список блюд
+     */
     private final Tablet tablet;
     protected List<Dish> dishes;
 
