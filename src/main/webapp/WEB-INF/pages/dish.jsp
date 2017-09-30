@@ -52,6 +52,7 @@
                 <h2>Menu</h2>
                 <!-- Paragraph -->
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>${json}</p>
                 <!-- Border -->
                 <div class="border"></div>
             </div>

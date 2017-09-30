@@ -1,15 +1,24 @@
 package com.han.orderservice.model.dish;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by hanaria on 9/30/17.
  */
 public class Product {
+    @JsonProperty("id")
     protected int id;
+    @JsonProperty("description")
     protected String description;
+    @JsonProperty("cost")
     protected double cost;
+    @JsonProperty("quantity")
     protected int quantity;
+    @JsonProperty("weight")
     protected int weight;
+    @JsonProperty("time")
     protected int time;
+    @JsonProperty("type")
     protected DishType type;
 
     public Product(){

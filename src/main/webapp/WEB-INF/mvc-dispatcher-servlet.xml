@@ -8,10 +8,8 @@
 
     <context:component-scan base-package="com.han.orderservice"/>
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+    <!-- Enables the Spring MVC @Controller programming model -->
+    <mvc:annotation-driven />
 
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
@@ -20,10 +18,9 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-    <!-- Enables the Spring MVC @Controller programming model -->
-    <mvc:annotation-driven/>
 
 </beans>
