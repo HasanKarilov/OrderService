@@ -28,7 +28,7 @@ public class ConsoleHelper {
         writeMessage(Dish.allDishesToString());
         writeMessage("Please choose dishes you want: ");
 
-        List<Dish> dishes = new ArrayList<>();
+        List<Dish> dishes = new ArrayList<Dish>();
 
         while (true){
            String name = bis.readLine();
